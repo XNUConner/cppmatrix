@@ -1,7 +1,6 @@
 #ifndef UNREADNOTIFICATIONCOUNTS_CPP_INCLUDE_
 #define UNREADNOTIFICATIONCOUNTS_CPP_INCLUDE_
-class UnreadNotificationCounts {
-public:
+struct UnreadNotificationCounts {
 	std::optional<unsigned int> highlight_count;
 	std::optional<unsigned int> notification_count;
 

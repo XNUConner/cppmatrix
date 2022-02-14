@@ -1,8 +1,7 @@
 #ifndef SYNCROOMEVENT_CPP_INCLUDE_
 #define SYNCROOMEVENT_CPP_INCLUDE_
 #include "UnsignedData.cpp"
-class SyncRoomEvent {
-public:
+struct SyncRoomEvent {
 	json content;
 	std::string event_id;
 	int origin_server_ts;

@@ -1,8 +1,7 @@
 #ifndef TIMELINE_CPP_INCLUDE_
 #define TIMELINE_CPP_INCLUDE_
 #include "SyncRoomEvent.cpp"
-class Timeline {
-public:
+struct Timeline {
 	std::vector<SyncRoomEvent> events;
 	bool limited;
 	std::string prev_batch;

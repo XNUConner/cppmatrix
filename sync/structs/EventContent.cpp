@@ -2,8 +2,7 @@
 #define EVENTCONTENT_CPP_INCLUDE_
 #include "Membership.cpp"
 #include "Invite.cpp"
-class EventContent {
-public:
+struct EventContent {
 	std::optional<std::string> avatar_url;
 	std::optional<std::string> displayname;
 	bool is_direct;

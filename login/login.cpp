@@ -54,16 +54,22 @@ std::string prompt_user_for_login_type(std::vector<std::string> types) {
 }
 
 json build_login_json(std::string login_type, std::map<std::string, std::string> logindata) {
+
 	json login_json;
+
 	if(login_type == "m.login.password") {
 		login_json["identifier"] = {};
 		login_json["identifier"]["type"] = "m.id.user";
 		login_json["identifier"]["user"] = logindata["user"];
-
 		login_json["initial_device_display_name"] = logindata["initial_device_display_name"];
 		login_json["password"] = logindata["password"];
-		login_json["type"] = login_type;
+
+	} else if(login_type == "m.login.token") {
+		login_json["token"] = logindata["token"];
 	}
+
+	login_json["type"] = login_type;
+
 	return login_json;
 }
 
@@ -104,13 +110,18 @@ void login(Matrix* m, curl_tools* tools) {
 	logindata.insert( std::make_pair("initial_device_display_name", "Matrix CLI") );
 	logindata.insert( std::make_pair("type", type) );
 
-	if(type == "m.login.password")
+	if(type == "m.login.password") {
 		logindata.insert( make_pair("password", get_password()) );
+	} else if(type == "m.login.token") {
+		logindata.insert( make_pair("token", read_access_token_file()) );
+		logindata.insert( make_pair("device_id", read_device_id_file()) );
+	}
 
 	login_json = build_login_json(type, logindata);
 
 	// Set curl HTTP request body to our login json
 	post_data = login_json.dump();
+	std::cout << login_json.dump(4) << std::endl;
 
 	// TODO: post_data should be like response, but request in http_request.cpp
 	tools->req->data = post_data.c_str();
@@ -121,6 +132,7 @@ void login(Matrix* m, curl_tools* tools) {
 	login_response = json::parse(tools->res->data);
 	clear_HTTP_Response(tools->res);
 
+	std::cout << "Response:\n" << login_response << "\n";
 	access_token = login_response["access_token"];
 	device_id = login_response["device_id"];
 

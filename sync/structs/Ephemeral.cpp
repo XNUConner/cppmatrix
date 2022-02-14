@@ -1,8 +1,7 @@
 #ifndef EPHEMERAL_CPP_INCLUDE_
 #define EPHEMERAL_CPP_INCLUDE_
 #include "Event.cpp"
-class Ephemeral {
-public:
+struct Ephemeral {
 	std::vector<Event> events;
 
 	Ephemeral() {}

@@ -1,8 +1,7 @@
 #ifndef INVITE_CPP_INCLUDE_
 #define INVITE_CPP_INCLUDE_
 #include "Signed.cpp"
-class Invite {
-public:
+struct Invite {
 	std::optional<std::string> display_name;
 	Signed _signed;
 

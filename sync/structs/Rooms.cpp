@@ -1,8 +1,7 @@
 #ifndef ROOMS_CPP_INCLUDE_
 #define ROOMS_CPP_INCLUDE_
 #include "Room.cpp"
-class Rooms {
-public:
+struct Rooms {
 	std::map<std::string, Room> invite;
 	std::map<std::string, Room> join;
 	std::map<std::string, Room> knock;

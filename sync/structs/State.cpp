@@ -1,8 +1,7 @@
 #ifndef STATE_CPP_INCLUDE_
 #define STATE_CPP_INCLUDE_
 #include "SyncStateEvent.cpp"
-class State {
-public:
+struct State {
 	std::vector<SyncStateEvent> events;
 
 	State() {}

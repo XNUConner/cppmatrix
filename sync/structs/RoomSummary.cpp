@@ -1,7 +1,6 @@
 #ifndef ROOMSUMMARY_CPP_INCLUDE_
 #define ROOMSUMMARY_CPP_INCLUDE_
-class RoomSummary {
-public:
+struct RoomSummary {
 	std::vector<std::string> m_heros;
 	int m_invited_member_count;
 	int m_joined_member_count;

@@ -6,8 +6,7 @@
 #include "RoomSummary.cpp"
 #include "Timeline.cpp"
 #include "UnreadNotificationCounts.cpp"
-class Room {
-public:
+struct Room {
 	AccountData account_data;
 	Ephemeral ephemeral;
 	std::optional<unsigned int> org_matrix_msc2654_unread_count;

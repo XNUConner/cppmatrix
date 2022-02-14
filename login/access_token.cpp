@@ -17,6 +17,7 @@ std::string read_access_token_file() {
 		std::cerr << "[ERROR] read_access_token_file(): Failed to open .access_token file" << std::endl;
 	else
 		std::getline(f, token);
+	f.close();
 
 	return token;
 }

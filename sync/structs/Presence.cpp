@@ -1,8 +1,7 @@
 #ifndef PRESENCE_CPP_INCLUDE_
 #define PRESENCE_CPP_INCLUDE_
 #include "Event.cpp"
-class Presence {
-public:
+struct Presence {
 	std::vector<Event> events;
 	
 	Presence() {}

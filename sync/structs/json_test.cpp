@@ -15,12 +15,13 @@ int main(void) {
 		obj = json::parse(raw.c_str());
 	}
 	catch(json::exception& e) {
-		std::cout << e.what() << "\n";
+		std::cout << "[ERROR]: " << e.what() << "\n";
 	}
 	
 	f.close();
 
 	AccountData acc_data(obj["account_data"]);
+	std::cout << acc_data << "\n";
 	std::string next_batch = obj["next_batch"];
 	Presence presence(obj["presence"]);
 	Rooms rooms(obj["rooms"]);

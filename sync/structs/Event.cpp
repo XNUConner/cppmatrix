@@ -1,7 +1,6 @@
 #ifndef EVENT_CPP_INCLUDE_
 #define EVENT_CPP_INCLUDE_
-class Event {
-public:
+struct Event {
 	json content;
 	std::optional<std::string> type;
 	std::optional<std::string> sender;

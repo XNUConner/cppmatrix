@@ -2,8 +2,7 @@
 #define SYNCSTATEEVENT_CPP_INCLUDE_
 #include "EventContent.cpp"
 #include "UnsignedData.cpp"
-class SyncStateEvent {
-public:
+struct SyncStateEvent {
 	json content;
 	std::string event_id;
 	int origin_server_ts;

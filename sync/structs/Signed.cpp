@@ -1,8 +1,7 @@
 #ifndef SIGNED_CPP_INCLUDE_
 #define SIGNED_CPP_INCLUDE
 #include "Signatures.cpp"
-class Signed {
-public:
+struct Signed {
 	std::optional<std::string> mxid;
 	Signatures signatures;
 	std::optional<std::string> token;

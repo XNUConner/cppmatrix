@@ -1,7 +1,6 @@
 #ifndef UNSIGNEDDATA_CPP_INCLUDE_
 #define UNSIGNEDDATA_CPP_INCLUDE_
-class UnsignedData {
-public:
+struct UnsignedData {
 	std::optional<int> age;
 	Event redacted_because;
 	std::optional<std::string> transaction_id;

@@ -1,8 +1,7 @@
 #ifndef ACCOUNTDATA_CPP_INCLUDE_
 #define ACCOUNTDATA_CPP_INCLUDE_
 #include "Event.cpp"
-class AccountData {
-public:
+struct AccountData {
 	std::vector<Event> events;
 
 	AccountData() {}

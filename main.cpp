@@ -14,22 +14,17 @@ int main(void) {
 
 	curl_tools *tools = init_curl_tools();
 	
-	// sets m.id.user
-	// sets m.homeserver.base_url
-	// sets m.identity_server.base_url
 	autodiscovery(matrix_id, &m, tools);
 	
-	std::cout << m.id.user << std::endl;
-	std::cout << m.homeserver.base_url << std::endl;
-	std::cout << m.identity_server.base_url << std::endl;
-
 	login(&m, tools);
 
-	std::cout << m.login.token << std::endl;
+	SyncData sd = sync(&m, tools);
 
-	sync(&m, tools);
+	Rooms rooms = sd.rooms;
+	for(auto r : rooms.join) {
+		std::cout << r.first << "\n";
+	}
 
-	std::cout << "[DEBUG] destroy_curl_tools()" << std::endl;
 	destroy_curl_tools(tools);
 	return 0;
 }

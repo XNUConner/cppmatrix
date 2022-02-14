@@ -2,8 +2,7 @@
 #define SIGNATURES_CPP_INCLUDE_
 #include<string>
 #include <map>
-class Signatures {
-public:
+struct Signatures {
 	std::map<std::string, std::pair<std::string, std::string>> signatures;
 
 	Signatures() {}
