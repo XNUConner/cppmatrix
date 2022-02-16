@@ -7,6 +7,7 @@
 #include "curl/all.hpp"
 #include "login/all.hpp"
 #include "sync/sync.cpp"
+#include "input/room_selection.cpp"
 
 int main(void) {
 	Matrix m;
@@ -20,10 +21,7 @@ int main(void) {
 
 	SyncData sd = sync(&m, tools);
 
-	Rooms rooms = sd.rooms;
-	for(auto r : rooms.join) {
-		std::cout << r.first << "\n";
-	}
+	std::string room = getRoomSelection(sd.rooms);
 
 	destroy_curl_tools(tools);
 	return 0;

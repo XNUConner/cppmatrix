@@ -51,15 +51,12 @@ static struct curl_tools* init_curl_tools() {
 void destroy_curl_tools(curl_tools* tools) {
 	if(!tools) return;
 
-	std::cout << "Calling on req:\n";
 	if(tools->req)
 		destroy_HTTP_Request(tools->req);
 
-	std::cout << "Calling on res:\n";
 	if(tools->res)
 		destroy_HTTP_Response(tools->res);
 
-	std::cout << "Calling on curl:\n";
 	if(tools->curl)
 		curl_easy_cleanup(tools->curl);
 	

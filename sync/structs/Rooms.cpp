@@ -15,16 +15,16 @@ struct Rooms {
 		json knock_json  = rooms_json["knock"];
 		json leave_json  = rooms_json["leave"];
 
-		for(auto room : invite_json.items())
+		for(const auto& room : invite_json.items())
 			invite[room.key()] = Room(room.value());
 
-		for(auto room : join_json.items())
+		for(const auto& room : join_json.items())
 			join[room.key()] = Room(room.value());
 
-		for(auto room : knock_json.items())
+		for(const auto& room : knock_json.items())
 			knock[room.key()] = Room(room.value());
 
-		for(auto room : leave_json.items())
+		for(const auto& room : leave_json.items())
 			leave[room.key()] = Room(room.value());
 	}
 };
