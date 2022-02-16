@@ -121,7 +121,6 @@ void login(Matrix* m, curl_tools* tools) {
 
 	// Set curl HTTP request body to our login json
 	post_data = login_json.dump();
-	std::cout << login_json.dump(4) << std::endl;
 
 	// TODO: post_data should be like response, but request in http_request.cpp
 	tools->req->data = post_data.c_str();
@@ -132,7 +131,6 @@ void login(Matrix* m, curl_tools* tools) {
 	login_response = json::parse(tools->res->data);
 	clear_HTTP_Response(tools->res);
 
-	std::cout << "Response:\n" << login_response << "\n";
 	access_token = login_response["access_token"];
 	device_id = login_response["device_id"];
 

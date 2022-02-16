@@ -1,6 +1,6 @@
-#include "structs/AccountData.cpp"
-#include "structs/Presence.cpp"
-#include "structs/Rooms.cpp"
+#ifndef SYNC_CPP
+#define SYNC_CPP
+#include "../structs/meta/SyncData.cpp"
 void sendSyncRequest(Matrix* m, curl_tools* tools) {
 	std::string endpoint = "/_matrix/client/v3/sync";
 	std::string access_token = m->login.token;
@@ -23,20 +23,6 @@ void debugDumpSyncJSON(json j) {
 	out.close();
 }
 
-/* Represents deserialized JSON from the response to our sync request. */
-struct SyncData {
-	AccountData accountdata;
-	std::string next_batch;
-	Presence    presence;
-	Rooms       rooms;
-
-	SyncData(json j) : 
-		accountdata(j["account_data"]), 
-		next_batch(j["next_batch"]),
-		presence(j["presence"]),
-		rooms(j["rooms"]) {}
-};
-
 SyncData sync(Matrix* m, curl_tools* tools) {
 	sendSyncRequest(m, tools);
 	json sync_json = json::parse(tools->res->data);
@@ -44,3 +30,4 @@ SyncData sync(Matrix* m, curl_tools* tools) {
 	/* Deserialize JSON */
 	return SyncData(sync_json);
 }
+#endif // SYNC_CPP
