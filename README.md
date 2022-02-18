@@ -6,3 +6,5 @@
 - Login via username + password
 - Login via access token
 - Initial sync request, and JSON serialization
+- Follow-up sync loop
+- Messages for selected room update in real time
