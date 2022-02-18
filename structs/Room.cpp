@@ -14,7 +14,7 @@ struct Room {
 	RoomSummary summary;
 	Timeline timeline;
 	UnreadNotificationCounts unread_notifications;
-
+	
 	Room() {}
 
 	Room(json j) {
